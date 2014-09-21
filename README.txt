@@ -15,6 +15,17 @@ Mind body API integration, this is a mind body api intergation kit for wordpress
 it's intention is to try and import the mindbody api lesson's, classes and staff over to wordpress/woocommerce.
 If any further help is required drop me a line on here or contact http://accruemarketing.com/
 
+you have a few shortcodes: 
+
+[mindbodyeventscal]
+
+and 
+[mindbodyeventscalwid]
+
+these may require additional javascript files
+at the very least you'll  
+need to add in the JS file for these if anybody is interested they can open a ticket and I'll upload them... 
+
 
 == Installation ==
 
