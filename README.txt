@@ -1,7 +1,6 @@
 === mind-body ===
 Contributors: vimes1984
-Donate link: http://accruesupport.com
-Tags: comments, spam
+Tags: wordpress, mindbody, plugin
 Requires at least: 3.5.1
 Tested up to: 3.6
 Stable tag: 1.0.0
@@ -12,7 +11,10 @@ Mind body API integration
 
 == Description ==
 
-Mind body API integration (Longer description here)
+Mind body API integration, this is a mind body api intergation kit for wordpress.
+it's intention is to try and import the mindbody api lesson's, classes and staff over to wordpress/woocommerce.
+If any further help is required drop me a line on here or contact http://accruemarketing.com/
+
 
 == Installation ==
 
