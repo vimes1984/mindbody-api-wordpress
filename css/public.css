@@ -1,0 +1,2274 @@
+/*!
+ * FullCalendar v1.6.4 Stylesheet
+ * Docs & License: http://arshaw.com/fullcalendar/
+ * (c) 2013 Adam Shaw
+ */
+
+
+.fc {
+  direction: ltr;
+  text-align: left;
+  }
+  
+.fc table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  }
+  
+html .fc,
+.fc table {
+  font-size: 1em;
+  }
+  
+.fc td,
+.fc th {
+  padding: 0;
+  vertical-align: top;
+  }
+
+
+
+/* Header
+------------------------------------------------------------------------*/
+ 
+.fc-header td {
+  white-space: nowrap;
+  }
+
+.fc-header-left {
+  width: 25%;
+  text-align: left;
+  }
+  
+.fc-header-center {
+  text-align: center;
+  }
+  
+.fc-header-right {
+  width: 25%;
+  text-align: right;
+  }
+  
+.fc-header-title {
+  display: inline-block;
+  vertical-align: top;
+  }
+  
+.fc-header-title h2 {
+  margin-top: 0;
+  white-space: nowrap;
+  }
+  
+.fc .fc-header-space {
+  padding-left: 10px;
+  }
+  
+.fc-header .fc-button {
+  margin-bottom: 1em;
+  vertical-align: top;
+  }
+  
+/* buttons edges butting together */
+
+.fc-header .fc-button {
+  margin-right: -1px;
+  }
+  
+.fc-header .fc-corner-right,  /* non-theme */
+.fc-header .ui-corner-right { /* theme */
+  margin-right: 0; /* back to normal */
+  }
+  
+/* button layering (for border precedence) */
+  
+.fc-header .fc-state-hover,
+.fc-header .ui-state-hover {
+  z-index: 2;
+  }
+  
+.fc-header .fc-state-down {
+  z-index: 3;
+  }
+
+.fc-header .fc-state-active,
+.fc-header .ui-state-active {
+  z-index: 4;
+  }
+  
+  
+  
+/* Content
+------------------------------------------------------------------------*/
+  
+.fc-content {
+  clear: both;
+  zoom: 1; /* for IE7, gives accurate coordinates for [un]freezeContentHeight */
+  }
+  
+.fc-view {
+  width: 100%;
+  overflow: hidden;
+  }
+  
+  
+
+/* Cell Styles
+------------------------------------------------------------------------*/
+
+.fc-widget-header,    /* <th>, usually */
+.fc-widget-content {  /* <td>, usually */
+  border: 1px solid #ddd;
+  }
+  
+.fc-state-highlight { /* <td> today cell */ /* TODO: add .fc-today to <th> */
+  background: #fcf8e3;
+  }
+  
+.fc-cell-overlay { /* semi-transparent rectangle while dragging */
+  background: #bce8f1;
+  opacity: .3;
+  filter: alpha(opacity=30); /* for IE */
+  }
+  
+
+
+/* Buttons
+------------------------------------------------------------------------*/
+
+.fc-button {
+  position: relative;
+  display: inline-block;
+  padding: 0 .6em;
+  overflow: hidden;
+  height: 1.9em;
+  line-height: 1.9em;
+  white-space: nowrap;
+  cursor: pointer;
+  }
+  
+.fc-state-default { /* non-theme */
+  border: 1px solid;
+  }
+
+.fc-state-default.fc-corner-left { /* non-theme */
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  }
+
+.fc-state-default.fc-corner-right { /* non-theme */
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  }
+
+/*
+  Our default prev/next buttons use HTML entities like &lsaquo; &rsaquo; &laquo; &raquo;
+  and we'll try to make them look good cross-browser.
+*/
+
+.fc-text-arrow {
+  margin: 0 .1em;
+  font-size: 2em;
+  font-family: "Courier New", Courier, monospace;
+  vertical-align: baseline; /* for IE7 */
+  }
+
+.fc-button-prev .fc-text-arrow,
+.fc-button-next .fc-text-arrow { /* for &lsaquo; &rsaquo; */
+  font-weight: bold;
+  }
+  
+/* icon (for jquery ui) */
+  
+.fc-button .fc-icon-wrap {
+  position: relative;
+  float: left;
+  top: 50%;
+  }
+  
+.fc-button .ui-icon {
+  position: relative;
+  float: left;
+  margin-top: -50%;
+  *margin-top: 0;
+  *top: -50%;
+  }
+  
+/*
+  button states
+  borrowed from twitter bootstrap (http://twitter.github.com/bootstrap/)
+*/
+
+.fc-state-default {
+  background-color: #f5f5f5;
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  color: #333;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+.fc-state-hover,
+.fc-state-down,
+.fc-state-active,
+.fc-state-disabled {
+  color: #333333;
+  background-color: #e6e6e6;
+  }
+
+.fc-state-hover {
+  color: #333333;
+  text-decoration: none;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+     -moz-transition: background-position 0.1s linear;
+       -o-transition: background-position 0.1s linear;
+          transition: background-position 0.1s linear;
+  }
+
+.fc-state-down,
+.fc-state-active {
+  background-color: #cccccc;
+  background-image: none;
+  outline: 0;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+.fc-state-disabled {
+  cursor: default;
+  background-image: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  box-shadow: none;
+  }
+
+  
+
+/* Global Event Styles
+------------------------------------------------------------------------*/
+
+.fc-event-container > * {
+  z-index: 8;
+  }
+
+.fc-event-container > .ui-draggable-dragging,
+.fc-event-container > .ui-resizable-resizing {
+  z-index: 9;
+  }
+   
+.fc-event {
+  border: 1px solid #3a87ad; /* default BORDER color */
+  background-color: #3a87ad; /* default BACKGROUND color */
+  color: #fff;               /* default TEXT color */
+  font-size: .85em;
+  cursor: default;
+  }
+
+a.fc-event {
+  text-decoration: none;
+  }
+  
+a.fc-event,
+.fc-event-draggable {
+  cursor: pointer;
+  }
+  
+.fc-rtl .fc-event {
+  text-align: right;
+  }
+
+.fc-event-inner {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  }
+  
+.fc-event-time,
+.fc-event-title {
+  padding: 0 1px;
+  }
+  
+.fc .ui-resizable-handle {
+  display: block;
+  position: absolute;
+  z-index: 99999;
+  overflow: hidden; /* hacky spaces (IE6/7) */
+  font-size: 300%;  /* */
+  line-height: 50%; /* */
+  }
+  
+  
+  
+/* Horizontal Events
+------------------------------------------------------------------------*/
+
+.fc-event-hori {
+  border-width: 1px 0;
+  margin-bottom: 1px;
+  }
+
+.fc-ltr .fc-event-hori.fc-event-start,
+.fc-rtl .fc-event-hori.fc-event-end {
+  border-left-width: 1px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  }
+
+.fc-ltr .fc-event-hori.fc-event-end,
+.fc-rtl .fc-event-hori.fc-event-start {
+  border-right-width: 1px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  }
+  
+/* resizable */
+  
+.fc-event-hori .ui-resizable-e {
+  top: 0           !important; /* importants override pre jquery ui 1.7 styles */
+  right: -3px      !important;
+  width: 7px       !important;
+  height: 100%     !important;
+  cursor: e-resize;
+  }
+  
+.fc-event-hori .ui-resizable-w {
+  top: 0           !important;
+  left: -3px       !important;
+  width: 7px       !important;
+  height: 100%     !important;
+  cursor: w-resize;
+  }
+  
+.fc-event-hori .ui-resizable-handle {
+  _padding-bottom: 14px; /* IE6 had 0 height */
+  }
+  
+  
+  
+/* Reusable Separate-border Table
+------------------------------------------------------------*/
+
+table.fc-border-separate {
+  border-collapse: separate;
+  }
+  
+.fc-border-separate th,
+.fc-border-separate td {
+  border-width: 1px 0 0 1px;
+  }
+  
+.fc-border-separate th.fc-last,
+.fc-border-separate td.fc-last {
+  border-right-width: 1px;
+  }
+  
+.fc-border-separate tr.fc-last th,
+.fc-border-separate tr.fc-last td {
+  border-bottom-width: 1px;
+  }
+  
+.fc-border-separate tbody tr.fc-first td,
+.fc-border-separate tbody tr.fc-first th {
+  border-top-width: 0;
+  }
+  
+  
+
+/* Month View, Basic Week View, Basic Day View
+------------------------------------------------------------------------*/
+
+.fc-grid th {
+  text-align: center;
+  }
+
+.fc .fc-week-number {
+  width: 22px;
+  text-align: center;
+  }
+
+.fc .fc-week-number div {
+  padding: 0 2px;
+  }
+  
+.fc-grid .fc-day-number {
+  float: right;
+  padding: 0 2px;
+  }
+  
+.fc-grid .fc-other-month .fc-day-number {
+  opacity: 0.3;
+  filter: alpha(opacity=30); /* for IE */
+  /* opacity with small font can sometimes look too faded
+     might want to set the 'color' property instead
+     making day-numbers bold also fixes the problem */
+  }
+  
+.fc-grid .fc-day-content {
+  clear: both;
+  padding: 2px 2px 1px; /* distance between events and day edges */
+  }
+  
+/* event styles */
+  
+.fc-grid .fc-event-time {
+  font-weight: bold;
+  }
+  
+/* right-to-left */
+  
+.fc-rtl .fc-grid .fc-day-number {
+  float: left;
+  }
+  
+.fc-rtl .fc-grid .fc-event-time {
+  float: right;
+  }
+  
+  
+
+/* Agenda Week View, Agenda Day View
+------------------------------------------------------------------------*/
+
+.fc-agenda table {
+  border-collapse: separate;
+  }
+  
+.fc-agenda-days th {
+  text-align: center;
+  }
+  
+.fc-agenda .fc-agenda-axis {
+  width: 50px;
+  padding: 0 4px;
+  vertical-align: middle;
+  text-align: right;
+  white-space: nowrap;
+  font-weight: normal;
+  }
+
+.fc-agenda .fc-week-number {
+  font-weight: bold;
+  }
+  
+.fc-agenda .fc-day-content {
+  padding: 2px 2px 1px;
+  }
+  
+/* make axis border take precedence */
+  
+.fc-agenda-days .fc-agenda-axis {
+  border-right-width: 1px;
+  }
+  
+.fc-agenda-days .fc-col0 {
+  border-left-width: 0;
+  }
+  
+/* all-day area */
+  
+.fc-agenda-allday th {
+  border-width: 0 1px;
+  }
+  
+.fc-agenda-allday .fc-day-content {
+  min-height: 34px; /* TODO: doesnt work well in quirksmode */
+  _height: 34px;
+  }
+  
+/* divider (between all-day and slots) */
+  
+.fc-agenda-divider-inner {
+  height: 2px;
+  overflow: hidden;
+  }
+  
+.fc-widget-header .fc-agenda-divider-inner {
+  background: #eee;
+  }
+  
+/* slot rows */
+  
+.fc-agenda-slots th {
+  border-width: 1px 1px 0;
+  }
+  
+.fc-agenda-slots td {
+  border-width: 1px 0 0;
+  background: none;
+  }
+  
+.fc-agenda-slots td div {
+  height: 20px;
+  }
+  
+.fc-agenda-slots tr.fc-slot0 th,
+.fc-agenda-slots tr.fc-slot0 td {
+  border-top-width: 0;
+  }
+
+.fc-agenda-slots tr.fc-minor th,
+.fc-agenda-slots tr.fc-minor td {
+  border-top-style: dotted;
+  }
+  
+.fc-agenda-slots tr.fc-minor th.ui-widget-header {
+  *border-top-style: solid; /* doesn't work with background in IE6/7 */
+  }
+  
+
+
+/* Vertical Events
+------------------------------------------------------------------------*/
+
+.fc-event-vert {
+  border-width: 0 1px;
+  }
+
+.fc-event-vert.fc-event-start {
+  border-top-width: 1px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  }
+
+.fc-event-vert.fc-event-end {
+  border-bottom-width: 1px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  }
+  
+.fc-event-vert .fc-event-time {
+  white-space: nowrap;
+  font-size: 10px;
+  }
+
+.fc-event-vert .fc-event-inner {
+  position: relative;
+  z-index: 2;
+  }
+  
+.fc-event-vert .fc-event-bg { /* makes the event lighter w/ a semi-transparent overlay  */
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  opacity: .25;
+  filter: alpha(opacity=25);
+  }
+  
+.fc .ui-draggable-dragging .fc-event-bg, /* TODO: something nicer like .fc-opacity */
+.fc-select-helper .fc-event-bg {
+  display: none\9; /* for IE6/7/8. nested opacity filters while dragging don't work */
+  }
+  
+/* resizable */
+  
+.fc-event-vert .ui-resizable-s {
+  bottom: 0        !important; /* importants override pre jquery ui 1.7 styles */
+  width: 100%      !important;
+  height: 8px      !important;
+  overflow: hidden !important;
+  line-height: 8px !important;
+  font-size: 11px  !important;
+  font-family: monospace;
+  text-align: center;
+  cursor: s-resize;
+  }
+  
+.fc-agenda .ui-resizable-resizing { /* TODO: better selector */
+  _overflow: hidden;
+  }
+/*  .fc-day-content > div{display: none;}*/
+
+#text-4{
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*!
+ * FullCalendar v1.6.4 Stylesheet
+ * Docs & License: http://arshaw.com/fullcalendar/
+ * (c) 2013 Adam Shaw
+ */
+
+
+#calwidgetcontent .fc {
+  direction: ltr;
+  text-align: left;
+  }
+  
+#calwidgetcontent .fc table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: rgba(240, 248, 255, 0);
+  border: 0;
+  margin-bottom: 0px;
+  border-bottom: 0px solid #9a8f8f;
+}
+  
+html #calwidgetcontent .fc,
+#calwidgetcontent #calwidgetcontent .fc table {
+  font-size: 1em;
+  }
+  
+#calwidgetcontent .fc td,
+#calwidgetcontent .fc th {
+  padding: 0;
+  vertical-align: top;
+  }
+
+
+
+/* Header
+------------------------------------------------------------------------*/
+ 
+#calwidgetcontent .fc-header td {
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+#calwidgetcontent .fc-header-left {
+  width: 25%;
+  text-align: left;
+  }
+  
+#calwidgetcontent .fc-header-center {
+  text-align: center;
+  }
+  
+#calwidgetcontent .fc-header-right {
+  width: 25%;
+  text-align: right;
+  }
+  
+#calwidgetcontent .fc-header-title {
+  display: inline-block;
+  vertical-align: top;
+  }
+  
+#calwidgetcontent .fc-header-title h2 {
+  margin-top: 0;
+  white-space: nowrap;
+  font-size: 43px;
+  text-transform: uppercase;
+  margin: 0;
+  margin-bottom: 9px;
+  font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif; color: #26326d; font-style: italic;
+}
+  
+#calwidgetcontent .fc .fc-header-space {
+  padding-left: 10px;
+  }
+  
+#calwidgetcontent .fc-header .fc-button {
+  margin-bottom: 1em;
+  vertical-align: top;
+  }
+  
+/* buttons edges butting together */
+
+#calwidgetcontent .fc-header .fc-button {
+  margin-right: -1px;
+  }
+  
+#calwidgetcontent .fc-header .fc-corner-right,  /* non-theme */
+#calwidgetcontent .fc-header .ui-corner-right { /* theme */
+  margin-right: 0; /* back to normal */
+  background: url(images/cal_arrow.png); background-repeat: no-repeat; background-position: 9px 50%;}
+  
+/* button layering (for border precedence) */
+  
+#calwidgetcontent .fc-header .fc-state-hover,
+#calwidgetcontent .fc-header .ui-state-hover {
+  z-index: 2;
+  }
+  
+#calwidgetcontent .fc-header .fc-state-down {
+  z-index: 3;
+  }
+
+#calwidgetcontent .fc-header .fc-state-active,
+#calwidgetcontent .fc-header .ui-state-active {
+  z-index: 4;
+  }
+ #calwidgetcontent .fc-content {
+  clear: both;
+  zoom: 1; /* for IE7, gives accurate coordinates for [un]freezeContentHeight */
+  }
+  
+#calwidgetcontent .fc-view {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+  
+  
+
+/* Cell Styles
+------------------------------------------------------------------------*/
+
+#calwidgetcontent .fc-widget-header,    /* <th>, usually */
+#calwidgetcontent .fc-widget-content {  /* <td>, usually */
+  border: 1px solid #ddd;
+  }
+  
+#calwidgetcontent .fc-state-highlight { /* <td> today cell */ /* TODO: add .fc-today to <th> */
+  background: #fcf8e3;
+  }
+  
+#calwidgetcontent .fc-cell-overlay { /* semi-transparent rectangle while dragging */
+  background: #bce8f1;
+  opacity: .3;
+  filter: alpha(opacity=30); /* for IE */
+  }
+  
+
+
+/* Buttons
+------------------------------------------------------------------------*/
+
+#calwidgetcontent .fc-button {
+  position: relative;
+  display: inline-block;
+  padding: 0 .6em;
+  overflow: hidden;
+  height: 1.9em;
+  line-height: 1.9em;
+  white-space: nowrap;
+  cursor: pointer;
+  }
+  
+#calwidgetcontent .fc-state-default { /* non-theme */
+  border: 1px solid;
+  }
+
+#calwidgetcontent .fc-state-default.fc-corner-left { /* non-theme */
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background: url(images/cal_arrow.png); background-repeat: no-repeat; 
+ background-position: 9px 50%;
+ background-color: #26326d;
+}
+#calwidgetcontent .fc-state-default.fc-button.fc-button-prev{
+    background-color: #26326d;
+}
+#calwidgetcontent .fc-state-default.fc-button.fc-button-next{
+    background-position: -7px 50%;
+}
+#calwidgetcontent .fc-state-default.fc-corner-right { /* non-theme */
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+ 
+  box-shadow: 0 0 0;
+  border: 0;
+}
+
+/*
+  Our default prev/next buttons use HTML entities like &lsaquo; &rsaquo; &laquo; &raquo;
+  and we'll try to make them look good cross-browser.
+*/
+
+#calwidgetcontent .fc-text-arrow {
+  margin: 0 .1em;
+  font-size: 2em;
+  font-family: "Courier New", Courier, monospace;
+  vertical-align: baseline; /* for IE7 */
+  }
+
+#calwidgetcontent .fc-button-prev .fc-text-arrow,
+#calwidgetcontent .fc-button-next .fc-text-arrow { /* for &lsaquo; &rsaquo; */
+  font-weight: bold;
+  }
+  
+/* icon (for jquery ui) */
+  
+#calwidgetcontent .fc-button .fc-icon-wrap {
+  position: relative;
+  float: left;
+  top: 50%;
+  }
+  
+#calwidgetcontent .fc-button .ui-icon {
+  position: relative;
+  float: left;
+  margin-top: -50%;
+  *margin-top: 0;
+  *top: -50%;
+  }
+  
+/*
+  button states
+  borrowed from twitter bootstrap (http://twitter.github.com/bootstrap/)
+*/
+
+#calwidgetcontent .fc-state-default {
+  background-color: #f5f5f5;
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  color: #333;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+#calwidgetcontent .fc-state-hover,
+#calwidgetcontent .fc-state-down,
+#calwidgetcontent .fc-state-active,
+#calwidgetcontent .fc-state-disabled {
+  color: #333333;
+  background-color: #e6e6e6;
+  }
+
+#calwidgetcontent .fc-state-hover {
+  color: #333333;
+  text-decoration: none;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+     -moz-transition: background-position 0.1s linear;
+       -o-transition: background-position 0.1s linear;
+          transition: background-position 0.1s linear;
+  }
+
+#calwidgetcontent .fc-state-down,
+#calwidgetcontent .fc-state-active {
+  background-color: #cccccc;
+  background-image: none;
+  outline: 0;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+#calwidgetcontent .fc-state-disabled {
+  cursor: default;
+  background-image: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  box-shadow: none;
+  }
+
+  
+
+/* Global Event Styles
+------------------------------------------------------------------------*/
+
+#calwidgetcontent .fc-event-container > * {
+  z-index: 8;
+  }
+
+#calwidgetcontent .fc-event-container > .ui-draggable-dragging,
+#calwidgetcontent .fc-event-container > .ui-resizable-resizing {
+  z-index: 9;
+}
+#calwidgetcontent .fc-event:hover .fc-event-title{
+  color: #fefcf0;
+}
+#calwidgetcontent .fc-event:hover{
+    background-color: #363b5b;
+    cursor: pointer;
+    color: #fefcf0;
+}
+#calwidgetcontent .fc-event {
+        -webkit-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    -webkit-transition-property: all;
+    -o-transition-property: all;
+    transition-property: all;
+  
+        border: 0px solid #3a87ad; /* default BORDER color */
+  background-color: rgba(58, 135, 173, 0); /* default BACKGROUND color */               /* default TEXT color */
+  
+        color: #fefcf0;
+  font-size: .85em;
+  cursor: default;
+  border-radius: 0;
+  /* height: 17px; */
+  line-height: 45px;
+}
+
+#calwidgetcontent a.fc-event {
+  text-decoration: none;
+  }
+  
+#calwidgetcontent a.fc-event,
+#calwidgetcontent .fc-event-draggable {
+  cursor: pointer;
+  }
+  
+#calwidgetcontent .fc-rtl .fc-event {
+  text-align: right;
+  }
+
+#calwidgetcontent .fc-event-inner {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  height: auto;
+  text-overflow: ellipsis;
+  white-space: pre;
+}
+  
+#calwidgetcontent .fc-event-time,
+#calwidgetcontent .fc-event-title {
+  padding: 0 1px;
+  color: #333;
+  padding-left: 10px;
+  text-overflow: ellipsis;
+}
+  
+#calwidgetcontent .fc .ui-resizable-handle {
+  display: block;
+  position: absolute;
+  z-index: 99999;
+  overflow: hidden; /* hacky spaces (IE6/7) */
+  font-size: 300%;  /* */
+  line-height: 50%; /* */
+  }
+  
+  
+  
+/* Horizontal Events
+------------------------------------------------------------------------*/
+
+#calwidgetcontent .fc-event-hori {
+  border-width: 0px 0;
+  margin-bottom: 1px;
+  }
+
+#calwidgetcontent .fc-ltr .fc-event-hori.fc-event-start,
+#calwidgetcontent .fc-rtl .fc-event-hori.fc-event-end {
+  }
+
+#calwidgetcontent .fc-ltr .fc-event-hori.fc-event-end,
+#calwidgetcontent .fc-rtl .fc-event-hori.fc-event-start {
+  }
+  
+/* resizable */
+  
+#calwidgetcontent .fc-event-hori .ui-resizable-e {
+  top: 0           !important; /* importants override pre jquery ui 1.7 styles */
+  right: -3px      !important;
+  width: 7px       !important;
+  height: 100%     !important;
+  cursor: e-resize;
+  }
+  
+#calwidgetcontent .fc-event-hori .ui-resizable-w {
+  top: 0           !important;
+  left: -3px       !important;
+  width: 7px       !important;
+  height: 100%     !important;
+  cursor: w-resize;
+  }
+  
+#calwidgetcontent .fc-event-hori .ui-resizable-handle {
+  _padding-bottom: 14px; /* IE6 had 0 height */
+  }
+  
+  
+  
+/* Reusable Separate-border Table
+------------------------------------------------------------*/
+#calwidgetcontent table.fc-border-separate thead{
+    background-color: #363b5b;
+    color: #fff;
+}
+#calwidgetcontent table.fc-border-separate {
+  border-collapse: separate;
+  }
+  
+#calwidgetcontent .fc-border-separate th,
+#calwidgetcontent .fc-border-separate td {
+  border-width: 1px 0 0 1px;
+  }
+  
+#calwidgetcontent .fc-border-separate th.fc-last,
+#calwidgetcontent .fc-border-separate td.fc-last {
+  border-right-width: 1px;
+  }
+  
+#calwidgetcontent .fc-border-separate tr.fc-last th,
+#calwidgetcontent .fc-border-separate tr.fc-last td {
+  border-bottom-width: 0px;
+  background: rgba(240, 248, 255, 0);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #fefcf0;
+}
+  
+#calwidgetcontent .fc-border-separate tbody tr.fc-first td,
+#calwidgetcontent .fc-border-separate tbody tr.fc-first th {
+  border-top-width: 0;
+  }
+  
+  
+
+/* Month View, Basic Week View, Basic Day View
+------------------------------------------------------------------------*/
+
+#calwidgetcontent .fc-grid th {
+  text-align: center;
+  }
+
+#calwidgetcontent .fc .fc-week-number {
+  width: 22px;
+  text-align: center;
+  }
+
+#calwidgetcontent .fc .fc-week-number div {
+  padding: 0 2px;
+  }
+  
+#calwidgetcontent .fc-grid .fc-day-number {
+  float: right;
+  padding: 0 2px;
+  color: #333;
+}
+  
+#calwidgetcontent .fc-grid .fc-other-month .fc-day-number {
+  opacity: 0.3;
+  filter: alpha(opacity=30); /* for IE */
+  /* opacity with small font can sometimes look too faded
+     might want to set the 'color' property instead
+     making day-numbers bold also fixes the problem */
+  }
+  
+#calwidgetcontent .fc-grid .fc-day-content {
+  clear: both;
+  padding: 2px 2px 1px; /* distance between events and day edges */
+  }
+  
+/* event styles */
+  
+#calwidgetcontent .fc-grid .fc-event-time {
+  font-weight: bold;
+  color: #fefcf0;
+  background-color: #363b5b;
+  line-height: 35px;
+  padding-top: 14px;
+  padding-bottom: 15px;
+  padding-left: 5px;
+  padding-right: 10px;
+}
+  
+/* right-to-left */
+  
+#calwidgetcontent .fc-rtl .fc-grid .fc-day-number {
+  float: left;
+  }
+  
+#calwidgetcontent .fc-rtl .fc-grid .fc-event-time {
+  float: right;
+  }
+  
+  
+
+/* Agenda Week View, Agenda Day View
+------------------------------------------------------------------------*/
+
+#calwidgetcontent .fc-agenda table {
+  border-collapse: separate;
+  }
+  
+#calwidgetcontent .fc-agenda-days th {
+  text-align: center;
+  }
+  
+#calwidgetcontent .fc-agenda .fc-agenda-axis {
+  width: 50px;
+  padding: 0 4px;
+  vertical-align: middle;
+  text-align: right;
+  white-space: nowrap;
+  font-weight: normal;
+  }
+
+#calwidgetcontent .fc-agenda .fc-week-number {
+  font-weight: bold;
+  }
+  
+#calwidgetcontent .fc-agenda .fc-day-content {
+  padding: 2px 2px 1px;
+  }
+  
+/* make axis border take precedence */
+  
+#calwidgetcontent .fc-agenda-days .fc-agenda-axis {
+  border-right-width: 1px;
+  }
+  
+#calwidgetcontent .fc-agenda-days .fc-col0 {
+  border-left-width: 0;
+  }
+  
+/* all-day area */
+  
+#calwidgetcontent .fc-agenda-allday th {
+  border-width: 0 1px;
+  }
+  
+#calwidgetcontent .fc-agenda-allday .fc-day-content {
+  min-height: 34px; /* TODO: doesnt work well in quirksmode */
+  _height: 34px;
+  }
+  
+/* divider (between all-day and slots) */
+  
+#calwidgetcontent .fc-agenda-divider-inner {
+  height: 2px;
+  overflow: hidden;
+  }
+  
+#calwidgetcontent .fc-widget-header .fc-agenda-divider-inner {
+  background: #eee;
+  }
+  
+/* slot rows */
+  
+#calwidgetcontent .fc-agenda-slots th {
+  border-width: 1px 1px 0;
+  }
+  
+#calwidgetcontent .fc-agenda-slots td {
+  border-width: 1px 0 0;
+  background: none;
+  }
+  
+#calwidgetcontent .fc-agenda-slots td div {
+  height: 20px;
+  }
+  
+#calwidgetcontent .fc-agenda-slots tr.fc-slot0 th,
+#calwidgetcontent .fc-agenda-slots tr.fc-slot0 td {
+  border-top-width: 0;
+  }
+
+#calwidgetcontent .fc-agenda-slots tr.fc-minor th,
+#calwidgetcontent .fc-agenda-slots tr.fc-minor td {
+  border-top-style: dotted;
+  }
+  
+#calwidgetcontent .fc-agenda-slots tr.fc-minor th.ui-widget-header {
+  border-top-style: solid; /* doesn't work with background in IE6/7 */
+}
+  
+
+
+/* Vertical Events
+------------------------------------------------------------------------*/
+
+#calwidgetcontent .fc-event-vert {
+  border-width: 0 1px;
+  }
+
+#calwidgetcontent .fc-event-vert.fc-event-start {
+  border-top-width: 1px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  }
+
+#calwidgetcontent .fc-event-vert.fc-event-end {
+  border-bottom-width: 1px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  }
+  
+#calwidgetcontent .fc-event-vert .fc-event-time {
+  white-space: nowrap;
+  font-size: 10px;
+  }
+
+#calwidgetcontent .fc-event-vert .fc-event-inner {
+  position: relative;
+  z-index: 2;
+  }
+  
+#calwidgetcontent .fc-event-vert .fc-event-bg { /* makes the event lighter w/ a semi-transparent overlay  */
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  opacity: .25;
+  filter: alpha(opacity=25);
+  }
+  
+#calwidgetcontent .fc .ui-draggable-dragging .fc-event-bg, /* TODO: something nicer like .fc-opacity */
+#calwidgetcontent .fc-select-helper .fc-event-bg {
+  display: none\9; /* for IE6/7/8. nested opacity filters while dragging don't work */
+  }
+  
+/* resizable */
+  
+#calwidgetcontent .fc-event-vert .ui-resizable-s {
+  bottom: 0        !important; /* importants override pre jquery ui 1.7 styles */
+  width: 100%      !important;
+  height: 8px      !important;
+  overflow: hidden !important;
+  line-height: 8px !important;
+  font-size: 11px  !important;
+  font-family: monospace;
+  text-align: center;
+  cursor: s-resize;
+  }
+  
+#calwidgetcontent .fc-agenda .ui-resizable-resizing { /* TODO: better selector */
+  _overflow: hidden;
+  }
+#calwidgetcontent .fc-day.fc-mon.fc-widget-content.fc-today.fc-state-highlight{
+    background-color: #363b5b;
+}
+#calwidgetcontent .fc-day.fc-mon.fc-widget-content.fc-today.fc-state-highlight div:after{ 
+  
+}
+#calwidgetcontent .fc-day.fc-mon.fc-widget-content.fc-today.fc-state-highlight div .fc-day-content{
+  
+}
+#calwidgetcontent .fc-day.fc-mon.fc-widget-content.fc-today.fc-state-highlight div .fc-day-content:after{
+  content: ' ';
+  display: block;
+  width: 100%;
+  height: 14px;
+  background-color: #fff;
+  position: relative;
+  bottom: 1px;
+}
+#calwidgetcontent .fc-day.fc-mon.fc-widget-content.fc-today.fc-state-highlight div .fc-day-content div:after{
+    content: ' '; display: block;    
+    position: absolute; bottom: 1px; width: 0; height: 0; 
+    border-left: 10px solid transparent; 
+    border-right: 10px solid transparent; 
+    border-bottom: 10px solid #fefcf0;
+  
+    color: #fefcf0;
+    left: 41%;
+}
+#calwidgetcontent .fc-day.fc-mon.fc-widget-content.fc-today.fc-state-highlight div .fc-day-number{
+    color: #fefcf0;
+}
+#calwidgetcontent .fc-week.fc-last{
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*!
+ * FullCalendar v1.6.4 Stylesheet
+ * Docs & License: http://arshaw.com/fullcalendar/
+ * (c) 2013 Adam Shaw
+ */
+
+
+#sidecal .fc {
+  direction: ltr;
+  text-align: left;
+  }
+  
+#sidecal .fc table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: rgba(240, 248, 255, 0);
+  border: 0;
+  margin-bottom: 0px;
+  border-bottom: 0px solid #9a8f8f;
+}
+  
+html #sidecal .fc,
+#sidecal #sidecal .fc table {
+  font-size: 1em;
+  }
+  
+#sidecal .fc td,
+#sidecal .fc th {
+  padding: 0;
+  vertical-align: top;
+  }
+
+
+
+/* Header
+------------------------------------------------------------------------*/
+ 
+#sidecal .fc-header td {
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+#sidecal .fc-header-left {
+  width: 25%;
+  text-align: left;
+  }
+  
+#sidecal .fc-header-center {
+  text-align: center;
+  }
+  
+#sidecal .fc-header-right {
+  width: 25%;
+  text-align: right;
+  }
+  
+#sidecal .fc-header-title {
+  display: inline-block;
+  vertical-align: top;
+  }
+  
+#sidecal .fc-header-title h2 {
+  margin-top: 0;
+  white-space: nowrap;
+  font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+  font-size: 17px;
+  color: #fefcf0;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+  margin-bottom: 9px;
+}
+  
+#sidecal .fc .fc-header-space {
+  padding-left: 10px;
+  }
+  
+#sidecal .fc-header .fc-button {
+  margin-bottom: 1em;
+  vertical-align: top;
+  }
+  
+/* buttons edges butting together */
+
+#sidecal .fc-header .fc-button {
+  margin-right: -1px;
+  }
+  
+#sidecal .fc-header .fc-corner-right,  /* non-theme */
+#sidecal .fc-header .ui-corner-right { /* theme */
+  margin-right: 0; /* back to normal */
+  background: url(images/cal_arrow.png); background-repeat: no-repeat; background-position: 9px 50%;}
+  
+/* button layering (for border precedence) */
+  
+#sidecal .fc-header .fc-state-hover,
+#sidecal .fc-header .ui-state-hover {
+  z-index: 2;
+  }
+  
+#sidecal .fc-header .fc-state-down {
+  z-index: 3;
+  }
+
+#sidecal .fc-header .fc-state-active,
+#sidecal .fc-header .ui-state-active {
+  z-index: 4;
+  }
+ #sidecal .fc-content {
+  clear: both;
+  zoom: 1; /* for IE7, gives accurate coordinates for [un]freezeContentHeight */
+  }
+  
+#sidecal .fc-view {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+  
+  
+
+/* Cell Styles
+------------------------------------------------------------------------*/
+
+#sidecal .fc-widget-header,    /* <th>, usually */
+#sidecal .fc-widget-content {  /* <td>, usually */
+  border: 1px solid #ddd;
+  }
+  
+#sidecal .fc-state-highlight { /* <td> today cell */ /* TODO: add .fc-today to <th> */
+  background: #fcf8e3;
+  }
+  
+#sidecal .fc-cell-overlay { /* semi-transparent rectangle while dragging */
+  background: #bce8f1;
+  opacity: .3;
+  filter: alpha(opacity=30); /* for IE */
+  }
+  
+
+
+/* Buttons
+------------------------------------------------------------------------*/
+
+#sidecal .fc-button {
+  position: relative;
+  display: inline-block;
+  padding: 0 .6em;
+  overflow: hidden;
+  height: 1.9em;
+  line-height: 1.9em;
+  white-space: nowrap;
+  cursor: pointer;
+  }
+  
+#sidecal .fc-state-default { /* non-theme */
+  border: 1px solid;
+  }
+
+#sidecal .fc-state-default.fc-corner-left { /* non-theme */
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background: url(images/cal_arrow.png); background-repeat: no-repeat; 
+ background-position: 9px 50%;}
+#sidecal .fc-state-default.fc-button.fc-button-prev{}
+#sidecal .fc-state-default.fc-button.fc-button-next{
+    background-position: -7px 50%;
+}
+#sidecal .fc-state-default.fc-corner-right { /* non-theme */
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+ 
+  box-shadow: 0 0 0;
+  border: 0;
+}
+
+/*
+  Our default prev/next buttons use HTML entities like &lsaquo; &rsaquo; &laquo; &raquo;
+  and we'll try to make them look good cross-browser.
+*/
+
+#sidecal .fc-text-arrow {
+  margin: 0 .1em;
+  font-size: 2em;
+  font-family: "Courier New", Courier, monospace;
+  vertical-align: baseline; /* for IE7 */
+  }
+
+#sidecal .fc-button-prev .fc-text-arrow,
+#sidecal .fc-button-next .fc-text-arrow { /* for &lsaquo; &rsaquo; */
+  font-weight: bold;
+  }
+  
+/* icon (for jquery ui) */
+  
+#sidecal .fc-button .fc-icon-wrap {
+  position: relative;
+  float: left;
+  top: 50%;
+  }
+  
+#sidecal .fc-button .ui-icon {
+  position: relative;
+  float: left;
+  margin-top: -50%;
+  *margin-top: 0;
+  *top: -50%;
+  }
+  
+/*
+  button states
+  borrowed from twitter bootstrap (http://twitter.github.com/bootstrap/)
+*/
+
+#sidecal .fc-state-default {
+  background-color: #f5f5f5;
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  color: #333;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+#sidecal .fc-state-hover,
+#sidecal .fc-state-down,
+#sidecal .fc-state-active,
+#sidecal .fc-state-disabled {
+  color: #333333;
+  background-color: #e6e6e6;
+  }
+
+#sidecal .fc-state-hover {
+  color: #333333;
+  text-decoration: none;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+     -moz-transition: background-position 0.1s linear;
+       -o-transition: background-position 0.1s linear;
+          transition: background-position 0.1s linear;
+  }
+
+#sidecal .fc-state-down,
+#sidecal .fc-state-active {
+  background-color: #cccccc;
+  background-image: none;
+  outline: 0;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+#sidecal .fc-state-disabled {
+  cursor: default;
+  background-image: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  box-shadow: none;
+  }
+
+  
+
+/* Global Event Styles
+------------------------------------------------------------------------*/
+
+#sidecal .fc-event-container > * {
+  z-index: 8;
+  }
+
+#sidecal .fc-event-container > .ui-draggable-dragging,
+#sidecal .fc-event-container > .ui-resizable-resizing {
+  z-index: 9;
+}
+#sidecal .fc-event:hover > .fc-event-inner > .fc-event-time{
+    background-color: #99aad6;
+}
+#sidecal .fc-event:hover{
+    background-color: #5a699d;
+    cursor: pointer;
+}
+#sidecal .fc-event {
+        -webkit-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    -webkit-transition-property: all;
+    -o-transition-property: all;
+    transition-property: all;
+  
+        border: 0px solid #3a87ad; /* default BORDER color */
+  background-color: rgba(58, 135, 173, 0); /* default BACKGROUND color */               /* default TEXT color */
+  color: #fefcf0!important;
+  font-size: .85em;
+  cursor: default;
+  border-radius: 0;
+  /* height: 17px; */
+  line-height: 45px;
+}
+
+#sidecal a.fc-event {
+  text-decoration: none;
+  }
+  
+#sidecal a.fc-event,
+#sidecal .fc-event-draggable {
+  cursor: pointer;
+  }
+  
+#sidecal .fc-rtl .fc-event {
+  text-align: right;
+  }
+
+#sidecal .fc-event-inner {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  height: auto;
+  text-overflow: ellipsis;
+  white-space: pre;
+}
+  
+#sidecal .fc-event-time,
+#sidecal .fc-event-title {
+  padding: 0 1px;
+  color: #fefcf0;
+  padding-left: 10px;
+  text-overflow: ellipsis;
+}
+  
+#sidecal .fc .ui-resizable-handle {
+  display: block;
+  position: absolute;
+  z-index: 99999;
+  overflow: hidden; /* hacky spaces (IE6/7) */
+  font-size: 300%;  /* */
+  line-height: 50%; /* */
+  }
+  
+  
+  
+/* Horizontal Events
+------------------------------------------------------------------------*/
+
+#sidecal .fc-event-hori {
+  border-width: 0px 0;
+  margin-bottom: 1px;
+  }
+
+#sidecal .fc-ltr .fc-event-hori.fc-event-start,
+#sidecal .fc-rtl .fc-event-hori.fc-event-end {
+  }
+
+#sidecal .fc-ltr .fc-event-hori.fc-event-end,
+#sidecal .fc-rtl .fc-event-hori.fc-event-start {
+  }
+  
+/* resizable */
+  
+#sidecal .fc-event-hori .ui-resizable-e {
+  top: 0           !important; /* importants override pre jquery ui 1.7 styles */
+  right: -3px      !important;
+  width: 7px       !important;
+  height: 100%     !important;
+  cursor: e-resize;
+  }
+  
+#sidecal .fc-event-hori .ui-resizable-w {
+  top: 0           !important;
+  left: -3px       !important;
+  width: 7px       !important;
+  height: 100%     !important;
+  cursor: w-resize;
+  }
+  
+#sidecal .fc-event-hori .ui-resizable-handle {
+  _padding-bottom: 14px; /* IE6 had 0 height */
+  }
+  
+  
+  
+/* Reusable Separate-border Table
+------------------------------------------------------------*/
+#sidecal table.fc-border-separate thead{
+    background: transparent;
+    color: #fff;
+}
+#sidecal table.fc-border-separate {
+  border-collapse: separate;
+  }
+  
+#sidecal .fc-border-separate th,
+#sidecal .fc-border-separate td {
+  border-width: 1px 0 0 1px;
+  }
+  
+#sidecal .fc-border-separate th.fc-last,
+#sidecal .fc-border-separate td.fc-last {
+  border-right-width: 1px;
+  }
+  
+#sidecal .fc-border-separate tr.fc-last th,
+#sidecal .fc-border-separate tr.fc-last td {
+  border-bottom-width: 0px;
+  background: rgba(240, 248, 255, 0);
+  border-left: 0;
+  border-right: 0;
+  border-top: 2px solid #9A8F8F;
+  color: #fefcf0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+  
+#sidecal .fc-border-separate tbody tr.fc-first td,
+#sidecal .fc-border-separate tbody tr.fc-first th {
+  border-top-width: 0;
+  }
+  
+  
+
+/* Month View, Basic Week View, Basic Day View
+------------------------------------------------------------------------*/
+
+#sidecal .fc-grid th {
+  text-align: center;
+  }
+
+#sidecal .fc .fc-week-number {
+  width: 22px;
+  text-align: center;
+  }
+
+#sidecal .fc .fc-week-number div {
+  padding: 0 2px;
+  }
+  
+#sidecal .fc-grid .fc-day-number {
+  float: right;
+  padding: 0 2px;
+  }
+  
+#sidecal .fc-grid .fc-other-month .fc-day-number {
+  opacity: 0.3;
+  filter: alpha(opacity=30); /* for IE */
+  /* opacity with small font can sometimes look too faded
+     might want to set the 'color' property instead
+     making day-numbers bold also fixes the problem */
+  }
+  
+#sidecal .fc-grid .fc-day-content {
+  clear: both;
+  padding: 2px 2px 1px; /* distance between events and day edges */
+  }
+  
+/* event styles */
+  
+#sidecal .fc-grid .fc-event-time {
+  font-weight: bold;
+  color: #fefcf0;
+  background-color: #6476b4;
+  line-height: 35px;
+  padding-top: 14px;
+  padding-bottom: 15px;
+  padding-left: 5px;
+  padding-right: 10px;
+  min-width: 78px;
+  width: 78px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+  
+/* right-to-left */
+  
+#sidecal .fc-rtl .fc-grid .fc-day-number {
+  float: left;
+  }
+  
+#sidecal .fc-rtl .fc-grid .fc-event-time {
+  float: right;
+  }
+  
+  
+
+/* Agenda Week View, Agenda Day View
+------------------------------------------------------------------------*/
+
+#sidecal .fc-agenda table {
+  border-collapse: separate;
+  }
+  
+#sidecal .fc-agenda-days th {
+  text-align: center;
+  }
+  
+#sidecal .fc-agenda .fc-agenda-axis {
+  width: 50px;
+  padding: 0 4px;
+  vertical-align: middle;
+  text-align: right;
+  white-space: nowrap;
+  font-weight: normal;
+  }
+
+#sidecal .fc-agenda .fc-week-number {
+  font-weight: bold;
+  }
+  
+#sidecal .fc-agenda .fc-day-content {
+  padding: 2px 2px 1px;
+  }
+  
+/* make axis border take precedence */
+  
+#sidecal .fc-agenda-days .fc-agenda-axis {
+  border-right-width: 1px;
+  }
+  
+#sidecal .fc-agenda-days .fc-col0 {
+  border-left-width: 0;
+  }
+  
+/* all-day area */
+  
+#sidecal .fc-agenda-allday th {
+  border-width: 0 1px;
+  }
+  
+#sidecal .fc-agenda-allday .fc-day-content {
+  min-height: 34px; /* TODO: doesnt work well in quirksmode */
+  _height: 34px;
+  }
+  
+/* divider (between all-day and slots) */
+  
+#sidecal .fc-agenda-divider-inner {
+  height: 2px;
+  overflow: hidden;
+  }
+  
+#sidecal .fc-widget-header .fc-agenda-divider-inner {
+  background: #eee;
+  }
+  
+/* slot rows */
+  
+#sidecal .fc-agenda-slots th {
+  border-width: 1px 1px 0;
+  }
+  
+#sidecal .fc-agenda-slots td {
+  border-width: 1px 0 0;
+  background: none;
+  }
+  
+#sidecal .fc-agenda-slots td div {
+  height: 20px;
+  }
+  
+#sidecal .fc-agenda-slots tr.fc-slot0 th,
+#sidecal .fc-agenda-slots tr.fc-slot0 td {
+  border-top-width: 0;
+  }
+
+#sidecal .fc-agenda-slots tr.fc-minor th,
+#sidecal .fc-agenda-slots tr.fc-minor td {
+  border-top-style: dotted;
+  }
+  
+#sidecal .fc-agenda-slots tr.fc-minor th.ui-widget-header {
+  border-top-style: solid; /* doesn't work with background in IE6/7 */
+}
+  
+
+
+/* Vertical Events
+------------------------------------------------------------------------*/
+
+#sidecal .fc-event-vert {
+  border-width: 0 1px;
+  }
+
+#sidecal .fc-event-vert.fc-event-start {
+  border-top-width: 1px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  }
+
+#sidecal .fc-event-vert.fc-event-end {
+  border-bottom-width: 1px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  }
+  
+#sidecal .fc-event-vert .fc-event-time {
+  white-space: nowrap;
+  font-size: 10px;
+  }
+
+#sidecal .fc-event-vert .fc-event-inner {
+  position: relative;
+  z-index: 2;
+  }
+  
+#sidecal .fc-event-vert .fc-event-bg { /* makes the event lighter w/ a semi-transparent overlay  */
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  opacity: .25;
+  filter: alpha(opacity=25);
+  }
+  
+#sidecal .fc .ui-draggable-dragging .fc-event-bg, /* TODO: something nicer like .fc-opacity */
+#sidecal .fc-select-helper .fc-event-bg {
+  display: none\9; /* for IE6/7/8. nested opacity filters while dragging don't work */
+  }
+  
+/* resizable */
+  
+#sidecal .fc-event-vert .ui-resizable-s {
+  bottom: 0        !important; /* importants override pre jquery ui 1.7 styles */
+  width: 100%      !important;
+  height: 8px      !important;
+  overflow: hidden !important;
+  line-height: 8px !important;
+  font-size: 11px  !important;
+  font-family: monospace;
+  text-align: center;
+  cursor: s-resize;
+  }
+  
+#sidecal .fc-agenda .ui-resizable-resizing { /* TODO: better selector */
+  _overflow: hidden;
+  }
+/*  .fc-day-content > div{display: none;}*/
+/*
+Chris's css 
+*/
+#text-4{
+  display: none;
+}
+
+#eventinfo_wrap{
+    color: #fff;
+}
+#eventinfo_wrap .eventinfo{
+    border-bottom: 2px solid #9a8f8f;
+    padding-bottom: 10px;
+}
+#eventinfo_wrap h2{
+    font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+    color: #f7f5e8;
+    font-size: 17px;
+}
+#eventinfo_wrap p{}
+#eventinfo_wrap div{
+    font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif; 
+    color: #27346e;
+    font-size: 14px;
+}
+#eventinfo_wrap .row.descevent{
+    margin-bottom: 40px;
+
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.row .eventdropdown.row h4{}
+.row .eventdropdown.row{
+  position: absolute;
+  background: #f9f7eb;
+  color: #fff;
+  width: 49%;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", Helvetica, Arial, Lucida, sans-serif;
+  font-weight: normal;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #27346e;
+  padding: 35px;
+  top: 30%;
+  left: 25%;
+  max-height: 40%;
+  min-width: 400px;
+}
+.event_drop_down_wrap{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.71);
+    z-index: 99999999;
+}
+.closethis:hover{
+  font-weight: bold;
+        -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -ms-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+}
+.closethis{
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    cursor: pointer;
+    color: #27346e;
+    font-style: normal;
+    font-size: 22px;
+}
+.notepo{margin:0;}
+.stuff-to-show.ng-hide-add,
+.stuff-to-show.ng-hide-remove {
+  display: block!important;
+}
+.event_drop_down_wrap.ng-hide {
+}
+.event_drop_down_wrap.ng-hide-add{ 
+  display: block!important;
+  -webkit-animation:  bounceOutUp 0.8s;
+  -moz-animation:  bounceOutUp 0.8s;
+  -o-animation:  bounceOutUp 0.8s;
+  animation:  bounceOutUp 0.8s;
+}
+
+.event_drop_down_wrap.ng-hide-remove {
+  -webkit-animation:  bounceInDown 0.8s;
+  -moz-animation:  bounceInDown 0.8s;
+  -o-animation:  bounceInDown 0.8s;
+  animation:  bounceInDown 0.8s;
+
+}
+.event_drop_down_wrap.ng-hide-remove.ng-hide-remove-active { 
+}
+.descevent{}
+.descevent div{
+  color: #27346e;
+}
+#eventwraptitle{
+    margin-bottom: 20px;
+}
+#eventwraptitle h4{}
+#eventwraptitle h5{
+    font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+    color: #fefcf0;
+    margin: 14px;
+}
+#eventwraptitle .startendtime h5{
+    text-align: center;
+}
+#eventwraptitle .startendtime{
+    display: block;
+    background-color: #99aad6;
+}
+#eventwraptitle .row{
+    background-color: #5a669b;
+    margin: auto;
+}
+.btnsevent{
+    padding: 15px 30px;
+    border: 1px solid #5c658d;
+    border-radius: 5px;
+    width: 100%;
+    display: block;
+    font-size: 18px;
+    text-align: center;
+    color: #5c658d;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -ms-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-property: all;
+    -moz-transition-property: all;
+    -ms-transition-property: all;
+    -o-transition-property: all;
+    transition-property: all;    
+    font-style: normal;
+    cursor: pointer;
+}
+.btnsevent:hover{
+    color: #f9f7eb;
+    background-color: #5c658d;
+}
+#calwidgetcontent{}
+
+
+.accordion{margin-bottom:20px;}
+.accordion-group{}
+.accordion-heading{border-bottom:0;}
+.accordion-heading .accordion-toggle{display:block;padding:8px 15px;}
+.accordion-toggle{cursor:pointer;}
+.accordion-inner{padding:9px 15px;}
+.collapse{position:relative;height:0;overflow:hidden;-webkit-transition:height 0.35s ease;-moz-transition:height 0.35s ease;-o-transition:height 0.35s ease;transition:height 0.35s ease;}.collapse.in{height:auto;}
+.row.row.classintrodancestyle  .accordion-heading .collapsed h2:after{
+  content: '';
+  display: inline-block;
+  width: 0;   height: 0;   
+  border-top: 15px solid transparent;  
+  border-bottom: 15px solid transparent;    
+  border-left: 15px solid #26326d;
+  position: absolute;
+  left: 97%;
+        -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -ms-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-property: all;
+    -moz-transition-property: all;
+    -ms-transition-property: all;
+    -o-transition-property: all;
+    transition-property: all;   
+}
+.row.row.classintrodancestyle  .accordion-heading  h2:after{
+  content: '';
+  display: inline-block;
+  width: 0;   height: 0;         
+  border-left: 15px solid transparent;  
+  border-right: 15px solid transparent;    
+  border-top: 15px solid;
+  position: absolute;
+  left: 93%;
+        -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -ms-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-property: all;
+    -moz-transition-property: all;
+    -ms-transition-property: all;
+    -o-transition-property: all;
+    transition-property: all;   
+}
+.thumbnails > a > img{
+  margin: 5px;
+}
+.instructor_wrap .img_wrap img{
+    display: block;
+    margin: auto;
+}
+.instructor_wrap{
+  border-radius: 10px;
+  background-image: url('images/Footer-Top-Glow.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  padding: 10px;
+  margin-bottom: 40px;
+  margin-left: 15px;
+  margin-right: 15px;
+  display: inline-block;
+  vertical-align: top;
+}
+.instructor_wrap h2{
+  color: #26326d;
+  font-size: 21px;
+  font-weight: 200;
+  font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
+  text-align: center;
+  margin: 14px 0;
+}
+.button.instructors{
+  border: 0;
+border-top-right-radius: 40px;
+box-shadow: 0 0;
+border-bottom-left-radius: 40px;
+background: #27346e;
+padding-left: 30px;
+padding-right: 30px;
+padding-top: 15px;
+padding-bottom: 15px;
+margin: 18px auto 0 auto;
+  display: block;
+  width: 132px;
+}
+#main_instructor{
+    margin-top: 40px;
+}
+
+.four.instrcutorimg{
+  background-color: #121b4b;
+  border-radius: 10px;
+  background-image: url('images/Footer-Top-Glow.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  padding: 20px;
+  margin-bottom: 100px;
+}
+.instrcutorimg img{
+    display: block;
+    margin: auto;
+}
+.instrcutorimg h3{
+  color: #fff;
+  margin: 10px 0 15px 0;
+  text-align: center;
+  border-bottom: 2px solid;
+  padding: 0 0 10px 0;
+}
+.eight.instrcutorbio{
+    padding: 0 30px;
+}
+.eight.instrcutorbio h4{
+    margin: 10px 0 10px;
+}
+
+.prevnext .nav-previous{}
+.prevnext .six a{
+    font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif; 
+    font-weight: 300; 
+    color: #26326d; 
+    margin: 40px 0 10px 0; 
+    display: block;
+    font-size: 19px;
+}
+.prevnext .nav-next{}
+.prevnext .nav-instruc{}
+.prevnext .nav-instruc:before{ 
+  content: ' ';
+  display: inline-block;
+  width: 0; 
+  height: 0; 
+  border-top: 26px solid transparent;
+  border-bottom: 23px solid transparent; 
+  border-right: 23px solid #a473c6; 
+  top: 29px;
+  position: relative;
+}
+.prevnext .nav-instruc a{ 
+  font-weight: 300;  
+  margin: 29px 0 10px 0;  
+  font-size: 17px;
+  line-height: 39px;
+  background-color: #a473c6;
+  color: #fff;
+  text-align: center;
+  display: inline-block;
+  padding: 5px 12px;
+  vertical-align: top;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.prevnext .six a{
+    font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif; 
+    font-weight: 300; 
+    color: #26326d; 
+    margin: 40px 0 10px 0; 
+    display: block;
+    font-size: 19px;
+}
