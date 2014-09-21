@@ -25,6 +25,7 @@ and
 these may require additional javascript files
 at the very least you'll  
 need to add in the JS file for these if anybody is interested they can open a ticket and I'll upload them... 
+There are also a few factories in the public.js file that pertain to the shop page loop and require a custom shop page loop using isotope if anybodies interested I can upload that aswell...
 
 
 == Installation ==
