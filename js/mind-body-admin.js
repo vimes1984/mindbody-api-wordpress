@@ -15,19 +15,5 @@
 	"use strict";
 	$(function () {
 		// Place your administration-specific JavaScript here
-    	jQuery( "#tabs" ).tabs();
 	});
 }(jQuery));
-
-var adminapp = angular.module('ngappadmin', ['ngAnimate']);
-
-adminapp.controller('ngappcontroller', function($scope) {
-	if(typeof ARRAYFULL != 'undefined'){
-		$scope.arrayfull = ARRAYFULL;
-	}
-	$scope.testclick = function testclick(argument) {
-		//hide admin notice
-		angular.element('#hidenotice').attr('value', '1');
-	}
-
-});
