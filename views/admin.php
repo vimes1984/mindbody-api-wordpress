@@ -1,4 +1,4 @@
-l <?php
+<?php
 /**
  * the view for the administration dashboard.
  *
@@ -11,8 +11,7 @@ l <?php
  * @link      http://accruemarketing.com
  * @copyright 4-29-2014 Accrue
  */
-  		ini_set('display_errors', 1);
-  		error_reporting(E_ALL ^ E_NOTICE);
+
   	$plugins_url = realpath(__DIR__ . '/../..');
 
   	Global $wpdb,$woocommerce, $pagenow;

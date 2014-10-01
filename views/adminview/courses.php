@@ -2,10 +2,6 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 global $wpdb;
-
-ini_set('display_errors', 1);
-error_reporting(E_ALL ^ E_NOTICE);
-
 	/**
 	*Find a needle in  a haystack
 	*

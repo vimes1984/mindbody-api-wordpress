@@ -12,9 +12,6 @@
  * @copyright 4-29-2014 Accrue
  */
 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-
 /* Short and sweet */
 define('WP_USE_THEMES', false);
 
