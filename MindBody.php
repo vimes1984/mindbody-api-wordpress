@@ -400,8 +400,8 @@ class MindBody{
 			wp_enqueue_script('jquery-ui-tabs');
 			wp_enqueue_style( 'wp-date-picker' );
     		wp_enqueue_script( 'wp-date-picker-script', plugins_url('script.js', __FILE__ ), array( 'wp-date-picker' ), false, true );
-            wp_enqueue_script( $this->plugin_slug . "-admin-script-angular", "//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js", array("jquery"), $this->version);
-			wp_enqueue_script( $this->plugin_slug . "-admin-script-angular-animate", "//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-animate.js", array("jquery"), $this->version);
+            wp_enqueue_script( $this->plugin_slug . "-admin-script-angular", plugins_url( "js/angular.min.js", __FILE__ ), array("jquery"), $this->version);
+			wp_enqueue_script( $this->plugin_slug . "-admin-script-angular-animate", plugins_url( "js/angular-animate.js", __FILE__ ), array("jquery"), $this->version);
 			wp_enqueue_script($this->plugin_slug . "-admin-script", plugins_url("js/mind-body-admin.js", __FILE__),  array("jquery"), $this->version);
 		}
 

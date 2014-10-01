@@ -21,7 +21,6 @@
 			<div ui-calendar="uiConfig.calendar" calendar="myCalendar" ng-model="eventSource" ></div>
 		</div>
 		<br/>
-		<a href=" http://dancenergy.zenutech.com/calendar/" title="Calendar page" style="text-align: center; color: #fff; display: block;">Click for a full page Calendar</a>
 		<br/>
 	</aside>
 
