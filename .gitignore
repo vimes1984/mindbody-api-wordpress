@@ -38,4 +38,4 @@ Thumbs.db
 
 # Ignore svn stuff #
 ####################
-svn/*
+/svn/*
