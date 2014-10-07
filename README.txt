@@ -2,14 +2,30 @@
 Contributors: vimes1984
 Tags: wordpress, mindbody, plugin
 Requires at least: 3.5.1
-Tested up to: 3.6
-Stable tag: 1.0.0
+Tested up to: 4.0
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Mind body API integration
 
 == Description ==
+
+THIS PLUGIN IS INTENTED FOR DEVELOPERS ONLY.
+ALL ISSUES TO BE TRACKED VIA GITHUB
+https://github.com/vimes1984/mindbody-api-wordpress
+
+
+You will need at the very least Types: 
+
+https://wordpress.org/plugins/types/
+
+( with a few custom fields, see the plugin files for more info...)
+
+
+And Woocomerce: 
+https://wordpress.org/plugins/woocommerce/
+
 
 Mind body API integration, this is a mind body api intergation kit for wordpress.
 it's intention is to try and import the mindbody api lesson's, classes and staff over to wordpress/woocommerce.
@@ -20,12 +36,10 @@ you have a few shortcodes:
 [mindbodyeventscal]
 
 and 
-[mindbodyeventscalwid]
 
-these may require additional javascript files
-at the very least you'll  
-need to add in the JS file for these if anybody is interested they can open a ticket and I'll upload them... 
+[mindbodyeventscalwid] 
 There are also a few factories in the public.js file that pertain to the shop page loop and require a custom shop page loop using isotope if anybodies interested I can upload that aswell...
+
 
 
 == Installation ==
