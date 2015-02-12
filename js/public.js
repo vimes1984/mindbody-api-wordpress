@@ -77,7 +77,9 @@ myApp.controller('calappwidget', function($scope, $http, $location, usSpinnerSer
     
     $scope.dataurl = $location.$$protocol+'://'+$location.$$host+'/wp-content/plugins/mindbody/jsonclasses.php';
             $scope.method = 'GET';
-            $http({method: $scope.method, url: 'http://dancenergy.zenutech.com/wp-content/plugins/mindbody/jsonclasses.php'}).
+            $http({
+                method: $scope.method, 
+                url:  $scope.dataurl}).
                 success(function(data, status) {
                     $scope.status = status;
                     $scope.data = data;
